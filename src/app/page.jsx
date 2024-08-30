@@ -6,19 +6,24 @@ import LoadingSingle from "@/components/LoadingSingle";
 export default function Home() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [isLoading, setIsLoading] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setError('')
     try {
       const result = await authenticate(username, password);
       console.log(result.message);
       setError('');
     } catch (error) {
-      setError('Invalid credentials');
+      setError('Email or Password is incorrect.');
     }
+    setTimeout(() => {
+      setIsLoading(false);
+
+    },50)
   };
   return (
     <div className="w-full h-full bg-slate-600 overflow-hidden">
@@ -32,22 +37,26 @@ export default function Home() {
             <input 
             type = 'text' 
             placeholder="User Name" 
-            className="py-2 px-4 border-2 border-opacity-50 border-white real"
+            className="py-2 px-4 border-2 border-opacity-50 border-white"
             onChange={(e) => setUsername(e.target.value)}
             />
             <input 
             type = 'text' 
             placeholder="PassWord" 
-            className="py-2 px-4 border-2 border-opacity-50 border-white real"
-            onchange = {(e) => setPassword(e.target.value)}
+            className="py-2 px-4 border-2 border-opacity-50 border-white"
+            onChange = {(e) => setPassword(e.target.value)}
             />
+            {error && <p style={{ color: 'red' }}>{error}</p>}
             <button 
             className="w-full font-bold bg-purple-500 items-center justify-center text-center text-white py-3 rounded-xl shadow-sm hover:bg-purple-700"
-            onchange={isLoading}
+            disabled={isLoading}
+            // onClick={isLoading}
+
             > 
             {isLoading? <LoadingSingle/>: 'submit'}
             
             </button>
+
           </form>
         </div>
       </div>

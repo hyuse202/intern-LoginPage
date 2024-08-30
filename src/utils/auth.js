@@ -1,32 +1,22 @@
 export async function authenticate(username, password) {
-    try {
-    //   const response = await fetch('/api/auth', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({ username, password }),
-    //   });
-  
-    //   if (!response.ok) {
-    //     throw new Error('Authentication failed');
-    //   }
-  
-    //   const data = await response.json();
-    //   console.log(data.message); // Authentication successful
-    //   return data;
-    const data = {
-        title: "Book Title",
-        author: "Author Name",
-        year: 2024
-    };
-    
-    // Convert to JSON string
-    const jsonString = JSON.stringify(data);
-        // console.log(jsonString)
-        return jsonString;
-    } catch (error) {
-      console.error('Error:', error);
-      throw error;
+  try {
+    const response = await fetch('/api/auth', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, password }),
+    });
+
+    if (!response.ok) {
+      // If response is not OK, throw an error
+      const errorData = await response.json();
+      throw new Error(errorData.message);
     }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    throw error; // Propagate the error to the component
   }
+}
