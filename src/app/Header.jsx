@@ -12,13 +12,13 @@ function Header() {
         
         <ul className='hidden md:flex items-center space-x-5 font-semibold'>
           <li>
-            About
+          <Link href="/about"> About</Link>
           </li>
           <li>
-            Contact
+            <Link href="/contact"> Contact</Link>
           </li>
           <li>
-            Help
+            <Link href="/help"> Help</Link>
           </li>
         </ul>
 
@@ -31,13 +31,13 @@ function Header() {
           {/* menu */}
           <ul className='font-semibold bg-[#252525] w-screen pb-10 absolute -top-full group-focus:top-0 right-0 duration-150 flex flex-col space-y-3 justify-end'>
             <li className='flex justify-center w-full py-4 hover:bg-[#202020]'>
-              About
+            <Link href="/about"> About</Link>
             </li>
             <li className='flex justify-center w-full py-4 hover:bg-[#202020]'>
-              Contact
+            <Link href="/contact"> Contact</Link>
             </li>
             <li className='flex justify-center w-full py-4 hover:bg-[#202020]'>
-              Help
+            <Link href="/help"> Help</Link>
             </li>
           </ul>
         </button>

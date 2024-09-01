@@ -38,7 +38,21 @@ export default function LoginForm() {
     }
   };
   return (
-    <div className="w-full h-5/6 flex items-center justify-center">
+    <div className="w-full flex flex-col lg:flex-row h-5/6 items-center justify-center">
+      <div
+        className="w-[29rem] lg:w-[40rem] flex flex-col items-center justify-center p-12 bg-no-repeat bg-cover bg-center"
+        // style={{ backgroundImage: "url('/src/assets/Register-Background.png')" }}
+      >
+        <h1 className="text-gray-700 text-3xl mb-3 font-bold">Welcome</h1>
+        <div>
+          <p className="text-gray-700 text-xl font-lg">
+          Discover Your Perfect Stay Anywhere, Anytime - Simple, Fast, and Secure Online Booking {" "}
+            <a href="#" class="text-purple-500 font-semibold">
+              Learn more
+            </a>
+          </p>
+        </div>
+      </div>
       <div className="relative space-y-2 flex flex-col w-[25rem] sm:w-[33rem] lg:w-[40rem] bg-white p-12 rounded-md shadow-lg">
         <h1 className="text-2xl font-black"> Sign in </h1>
         <form onSubmit={handleSubmit} className="flex flex-col space-y-2">

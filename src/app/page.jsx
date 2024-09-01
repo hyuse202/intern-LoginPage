@@ -20,11 +20,11 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
+    <div className="h-screen flex flex-col items-center justify-center bg-gray-200">
       <h1 className="text-4xl font-bold mb-4">Welcome to the Dashboard</h1>
       <button
         onClick={handleLogout}
-        className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500"
+        className="bg-red-500 font-semibold text-white py-2 px-4 rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500"
       >
         Logout
       </button>
