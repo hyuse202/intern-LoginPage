@@ -13,11 +13,11 @@ export default function LoginForm() {
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
   };
-  const authenticateUser = async (email, password) => {
+  const authenticateUser = async (Username, Password) => {
     // Simulate an API call to authenticate the user
     return new Promise((resolve) => {
       setTimeout(() => {
-        if (email === "admin" && password === "123") {
+        if (Username === "admin" && Password === "123") {
           resolve({ success: true, token: "dummy-token" });
         } else {
           resolve({ success: false });
@@ -34,16 +34,16 @@ export default function LoginForm() {
       localStorage.setItem("token", result.token); // Store token in localStorage
       router.push("/"); // Redirect to home page on success
     } else {
-      setError("Invalid email or password. Please try again.");
+      setError("Invalid username or password. Please try again.");
     }
   };
   return (
-    <div className="w-full h-4/5 flex items-center justify-center">
+    <div className="w-full h-5/6 flex items-center justify-center">
       <div className="relative space-y-2 flex flex-col w-[25rem] sm:w-[33rem] lg:w-[40rem] bg-white p-12 rounded-md shadow-lg">
         <h1 className="text-2xl font-black"> Sign in </h1>
         <form onSubmit={handleSubmit} className="flex flex-col space-y-2">
           <label className="px-4 text-gray-700 text-md font-bold mt-5 ">
-            UsrName
+            UserName
           </label>
           <input
             type="text"
@@ -65,7 +65,7 @@ export default function LoginForm() {
           <span
             //   type="button"
             onClick={togglePasswordVisibility}
-            className="absolute inset-y-0 items-center justify-center right-48 top-48 px-3 py-2 text-purple-500 font-bold cursor-pointer text-sm select-none "
+            className="absolute inset-y-0 items-center justify-center right-40 top-48 px-3 py-2 text-purple-500 font-bold cursor-pointer text-sm select-none "
           >
             <p className="item-center">
               {showPassword ? "Hide psswrd" : "Show psswrd"}
